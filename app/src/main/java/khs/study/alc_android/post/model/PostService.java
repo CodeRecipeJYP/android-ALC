@@ -13,6 +13,8 @@ import khs.study.alc_android.post.presenter.PostPresenter;
 public interface PostService extends BaseService<PostPresenter> {
     void getPosts();
 
+    void setListener(PostService.listener listener);
+
     interface listener{
         void onGetPostsSuccess(List<Post> posts);
     }
