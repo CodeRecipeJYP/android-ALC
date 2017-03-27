@@ -14,5 +14,5 @@ import khs.study.alc_android.post.view.PostView;
 public interface PostPresenter extends BasePresenter<PostView,PostService> {
     void getPosts();
 
-    void showPosts();
+    void showPosts(List<Post> posts);
 }

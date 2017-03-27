@@ -9,6 +9,6 @@ import khs.study.alc_android.common.presenter.BasePresenter;
  */
 
 public interface BaseView<T> {
-    void setView(View view);
+    void setMotherView(View motherView);
     void setPresenter(T presenter);
 }
