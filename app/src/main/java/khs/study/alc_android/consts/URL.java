@@ -5,4 +5,8 @@ package khs.study.alc_android.consts;
  */
 
 public class URL {
+    public static final String getUrl() {
+        final String url = "http://thealcapi.pythonanywhere.com/";
+        return url;
+    }
 }
