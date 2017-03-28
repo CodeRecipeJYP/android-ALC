@@ -19,5 +19,7 @@ public interface PostView extends BaseView<PostPresenter> {
         void onNewPostButtonClick();
         void onDeletePostButtonClick();
         void onModifyPostButtonClick();
+        void onTestButtonClick();
+        void onTestViewLogic();
     }
 }

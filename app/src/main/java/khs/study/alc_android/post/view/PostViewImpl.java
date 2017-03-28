@@ -24,7 +24,7 @@ public class PostViewImpl implements PostView {
 
     RecyclerView mRecyclerView;
     PostAdapter mPostAdapter;
-    Button btn1, btn2,btn3,btn4,btn5;
+    Button btn1, btn2,btn3,btn4,btn5, btnTest;
 
     @Override
     public void setMotherView(View motherView) {
@@ -32,8 +32,6 @@ public class PostViewImpl implements PostView {
         Log.d(TAG, "setMotherView: initView");
         initView();
     }
-
-
 
     void initView(){
         Log.d(TAG, "initView: mRecyclerView");
@@ -53,26 +51,36 @@ public class PostViewImpl implements PostView {
             }
         });
         btn3 = (Button) mMotherView.findViewById(R.id.button3);
-        btn2.setOnClickListener(new View.OnClickListener() {
+        btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mPresenter.onNewPostButtonClick();
             }
         });
         btn4 = (Button) mMotherView.findViewById(R.id.button4);
-        btn2.setOnClickListener(new View.OnClickListener() {
+        btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mPresenter.onModifyPostButtonClick();
             }
         });
         btn5 = (Button) mMotherView.findViewById(R.id.button5);
-        btn2.setOnClickListener(new View.OnClickListener() {
+        btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mPresenter.onDeletePostButtonClick();
             }
         });
+
+        btnTest = (Button) mMotherView.findViewById(R.id.buttonTest);
+        btnTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.onTestButtonClick();
+            }
+        });
+
+        // mPresenter.onTestViewLogic();
     }
 
     @Override

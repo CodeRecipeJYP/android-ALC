@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -38,8 +39,6 @@ public class PostActivity extends Activity implements PostPresenter{
         mView.setPresenter(this);
 
         mView.setMotherView(this.getWindow().getDecorView());
-
-        getPosts();
     }
 
     @Override
@@ -79,6 +78,7 @@ public class PostActivity extends Activity implements PostPresenter{
     @Override
     public void onShowPostsButtonClick() {
         Log.d(TAG, "onShowPostsButtonClick: ");
+        getPosts();
     }
 
     @Override
@@ -99,5 +99,22 @@ public class PostActivity extends Activity implements PostPresenter{
     @Override
     public void onModifyPostButtonClick() {
         Log.d(TAG, "onModifyPostButtonClick: ");
+    }
+
+
+    // for test
+
+    @Override
+    public void onTestButtonClick() {
+        testServiceLogic();
+    }
+
+    @Override
+    public void onTestViewLogic() {
+        Toast.makeText(this, "View Logic Test", Toast.LENGTH_SHORT).show();
+    }
+
+    void testServiceLogic(){
+
     }
 }
