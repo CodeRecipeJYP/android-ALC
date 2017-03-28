@@ -72,4 +72,32 @@ public class PostActivity extends Activity implements PostPresenter{
         Log.d(TAG, "showPosts: ");
         mView.showPosts(posts);
     }
+    
+    // Listener
+
+
+    @Override
+    public void onShowPostsButtonClick() {
+        Log.d(TAG, "onShowPostsButtonClick: ");
+    }
+
+    @Override
+    public void onShowPostButtonClick() {
+        Log.d(TAG, "onShowPostButtonClick: ");
+    }
+
+    @Override
+    public void onNewPostButtonClick() {
+        Log.d(TAG, "onNewPostButtonClick: ");
+    }
+
+    @Override
+    public void onDeletePostButtonClick() {
+        Log.d(TAG, "onDeletePostButtonClick: ");
+    }
+
+    @Override
+    public void onModifyPostButtonClick() {
+        Log.d(TAG, "onModifyPostButtonClick: ");
+    }
 }

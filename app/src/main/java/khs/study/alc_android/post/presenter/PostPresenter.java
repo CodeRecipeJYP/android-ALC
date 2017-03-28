@@ -11,7 +11,7 @@ import khs.study.alc_android.post.view.PostView;
  * Created by jaeyoung on 2017. 3. 26..
  */
 
-public interface PostPresenter extends BasePresenter<PostView,PostService> {
+public interface PostPresenter extends BasePresenter<PostView,PostService>, PostView.onClickListener {
     void getPosts();
 
     void showPosts(List<Post> posts);

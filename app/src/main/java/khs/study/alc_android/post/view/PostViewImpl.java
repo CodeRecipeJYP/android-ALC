@@ -3,6 +3,7 @@ package khs.study.alc_android.post.view;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class PostViewImpl implements PostView {
 
     RecyclerView mRecyclerView;
     PostAdapter mPostAdapter;
+    Button btn1, btn2,btn3,btn4,btn5;
 
     @Override
     public void setMotherView(View motherView) {
@@ -31,9 +33,46 @@ public class PostViewImpl implements PostView {
         initView();
     }
 
+
+
     void initView(){
         Log.d(TAG, "initView: mRecyclerView");
         mRecyclerView = (RecyclerView) mMotherView.findViewById(R.id.recycler_view);
+        btn1 = (Button) mMotherView.findViewById(R.id.button);
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.onShowPostsButtonClick();
+            }
+        });
+        btn2 = (Button) mMotherView.findViewById(R.id.button2);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.onShowPostButtonClick();
+            }
+        });
+        btn3 = (Button) mMotherView.findViewById(R.id.button3);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.onNewPostButtonClick();
+            }
+        });
+        btn4 = (Button) mMotherView.findViewById(R.id.button4);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.onModifyPostButtonClick();
+            }
+        });
+        btn5 = (Button) mMotherView.findViewById(R.id.button5);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.onDeletePostButtonClick();
+            }
+        });
     }
 
     @Override
