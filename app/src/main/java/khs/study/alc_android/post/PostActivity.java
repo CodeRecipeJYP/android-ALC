@@ -39,6 +39,13 @@ public class PostActivity extends Activity implements PostPresenter{
         mView.setPresenter(this);
 
         mView.setMotherView(this.getWindow().getDecorView());
+        onShowPostButtonClick();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        onShowPostButtonClick();
     }
 
     @Override
@@ -89,6 +96,15 @@ public class PostActivity extends Activity implements PostPresenter{
     @Override
     public void onNewPostButtonClick() {
         Log.d(TAG, "onNewPostButtonClick: ");
+        String title = mView.getNewPostTitle();
+        String content = mView.getNewPostContent();
+        String author = "1";
+        mService.postPost(author, title, content, new PostService.PostPostListener() {
+            @Override
+            public void onPostPostSuccess(Post post) {
+                onShowPostsButtonClick();
+            }
+        });
     }
 
     @Override
@@ -116,11 +132,6 @@ public class PostActivity extends Activity implements PostPresenter{
     }
 
     void testServiceLogic(){
-        mService.postPost("1", "안드로이드 글올리기 테스트", "과연", new PostService.PostPostListener() {
-            @Override
-            public void onPostPostSuccess(Post post) {
-                onShowPostsButtonClick();
-            }
-        });
+
     }
 }

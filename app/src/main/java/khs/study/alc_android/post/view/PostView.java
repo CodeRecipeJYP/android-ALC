@@ -13,6 +13,9 @@ import khs.study.alc_android.post.presenter.PostPresenter;
 public interface PostView extends BaseView<PostPresenter> {
     void showPosts(List<Post> posts);
 
+    String getNewPostTitle();
+    String getNewPostContent();
+
     interface onClickListener {
         void onShowPostsButtonClick();
         void onShowPostButtonClick();

@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import java.util.List;
 
@@ -24,7 +25,8 @@ public class PostViewImpl implements PostView {
 
     RecyclerView mRecyclerView;
     PostAdapter mPostAdapter;
-    Button btn1, btn2,btn3,btn4,btn5, btnTest;
+    Button btn1, btn2,btn3,newPostBtn,showPostsBtn, btnTest;
+    EditText newPostTitle, newPostContent;
 
     @Override
     public void setMotherView(View motherView) {
@@ -40,7 +42,7 @@ public class PostViewImpl implements PostView {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.onShowPostsButtonClick();
+                mPresenter.onDeletePostButtonClick();
             }
         });
         btn2 = (Button) mMotherView.findViewById(R.id.button2);
@@ -54,21 +56,21 @@ public class PostViewImpl implements PostView {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.onNewPostButtonClick();
-            }
-        });
-        btn4 = (Button) mMotherView.findViewById(R.id.button4);
-        btn4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 mPresenter.onModifyPostButtonClick();
             }
         });
-        btn5 = (Button) mMotherView.findViewById(R.id.button5);
-        btn5.setOnClickListener(new View.OnClickListener() {
+        newPostBtn = (Button) mMotherView.findViewById(R.id.newPostBtn);
+        newPostBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.onDeletePostButtonClick();
+                mPresenter.onNewPostButtonClick();
+            }
+        });
+        showPostsBtn = (Button) mMotherView.findViewById(R.id.showPostsBtn);
+        showPostsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.onShowPostsButtonClick();
             }
         });
 
@@ -80,7 +82,19 @@ public class PostViewImpl implements PostView {
             }
         });
 
+        newPostTitle = (EditText) mMotherView.findViewById(R.id.newPostTitle);
+        newPostContent = (EditText) mMotherView.findViewById(R.id.newPostContent);
         // mPresenter.onTestViewLogic();
+    }
+
+    @Override
+    public String getNewPostTitle(){
+        return newPostTitle.getText().toString();
+    }
+
+    @Override
+    public String getNewPostContent(){
+        return newPostContent.getText().toString();
     }
 
     @Override
