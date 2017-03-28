@@ -19,7 +19,6 @@ public class PostServiceImpl implements PostService {
     private final String TAG = "JYP/"+getClass().getSimpleName();
 
     PostPresenter mPresenter;
-    PostService.listener mListener;
 
     PostDao mPostDao;
     RestClient<PostDao> mRestClient;
@@ -37,12 +36,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void setListener(listener listener) {
-        mListener = listener;
-    }
-
-    @Override
-    public void getPosts() {
+    public void getPosts(final GetPostsListener getPostsListener) {
         Log.d(TAG, "getPosts: ");
 
         Call<List<Post>> call = mPostDao.getPosts();
@@ -51,7 +45,7 @@ public class PostServiceImpl implements PostService {
             public void onResponse(Call<List<Post>> call, Response<List<Post>> response) {
                 if (response.isSuccessful()) {
                     mPosts = response.body();
-                    mListener.onGetPostsSuccess(mPosts);
+                    getPostsListener.onGetPostsSuccess(mPosts);
                     Log.d(TAG, "onResponse: Response is Successful");
                 } else {
                     Log.d(TAG, "onResponse: Unexpected response");

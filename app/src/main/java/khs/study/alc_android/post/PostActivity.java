@@ -20,7 +20,7 @@ import khs.study.alc_android.post.view.PostViewImpl;
  * Created by jaeyoung on 2017. 3. 26..
  */
 
-public class PostActivity extends Activity implements PostPresenter, PostService.listener {
+public class PostActivity extends Activity implements PostPresenter{
     private final String TAG = "JYP/"+getClass().getSimpleName();
 
     PostService mService;
@@ -33,14 +33,13 @@ public class PostActivity extends Activity implements PostPresenter, PostService
 
         setService(new PostServiceImpl());
         mService.setPresenter(this);
-        mService.setListener(this);
 
         attachView(new PostViewImpl());
         mView.setPresenter(this);
 
         mView.setMotherView(this.getWindow().getDecorView());
 
-        mService.getPosts();
+        getPosts();
     }
 
     @Override
@@ -60,21 +59,17 @@ public class PostActivity extends Activity implements PostPresenter, PostService
 
     @Override
     public void getPosts() {
-
+        mService.getPosts(new PostService.GetPostsListener() {
+            @Override
+            public void onGetPostsSuccess(List<Post> posts) {
+                showPosts(posts);
+            }
+        });
     }
 
     @Override
     public void showPosts(List<Post> posts) {
         Log.d(TAG, "showPosts: ");
         mView.showPosts(posts);
-    }
-
-    // ----------------------------- listener -----------------------------
-
-
-    @Override
-    public void onGetPostsSuccess(List<Post> posts) {
-        Log.d(TAG, "onGetPostsSuccess: "+posts.toString());
-        showPosts(posts);
     }
 }
