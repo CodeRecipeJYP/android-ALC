@@ -106,6 +106,7 @@ public class PostActivity extends Activity implements PostPresenter{
 
     @Override
     public void onTestButtonClick() {
+        Log.d(TAG, "onTestButtonClick: ");
         testServiceLogic();
     }
 
@@ -115,6 +116,11 @@ public class PostActivity extends Activity implements PostPresenter{
     }
 
     void testServiceLogic(){
-
+        mService.postPost("1", "안드로이드 글올리기 테스트", "과연", new PostService.PostPostListener() {
+            @Override
+            public void onPostPostSuccess(Post post) {
+                onShowPostsButtonClick();
+            }
+        });
     }
 }

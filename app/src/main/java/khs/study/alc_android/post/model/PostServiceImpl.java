@@ -2,6 +2,8 @@ package khs.study.alc_android.post.model;
 
 import android.util.Log;
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.List;
 
 import khs.study.alc_android.post.domain.Post;
@@ -54,7 +56,31 @@ public class PostServiceImpl implements PostService {
 
             @Override
             public void onFailure(Call<List<Post>> call, Throwable t) {
-                Log.d(TAG, "onFailure: Failure");
+                Log.d(TAG, "onFailure: "+call.toString());
+            }
+        });
+    }
+
+    @Override
+    public void postPost(String author, String title, String content, final PostPostListener postPostsListener) {
+        Post post = new Post(author, DateFormat.getDateTimeInstance().format(new Date()), title, content);
+
+        Call<Post> call = mPostDao.postPost(post);
+        call.enqueue(new Callback<Post>() {
+            @Override
+            public void onResponse(Call<Post> call, Response<Post> response) {
+                if (response.isSuccessful()) {
+                    Log.d(TAG, "onResponse: Response is Successful");
+                    postPostsListener.onPostPostSuccess(response.body());
+                }
+                else {
+                    Log.d(TAG, "onResponse: Unexpected response");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Post> call, Throwable t) {
+                Log.d(TAG, "onFailure: "+call.toString());
             }
         });
     }

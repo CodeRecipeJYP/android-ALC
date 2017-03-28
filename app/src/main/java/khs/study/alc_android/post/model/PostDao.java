@@ -16,18 +16,18 @@ import retrofit2.http.Path;
  */
 
 public interface PostDao {
-    @GET("api/post/{post_id}")
+    @GET("api/post/{post_id}/")
     Call<Post> getPost(@Path("post_id") String id);
 
-    @GET("api/post")
+    @GET("api/post/")
     Call<List<Post>> getPosts();
 
-    @POST("api/post")
+    @POST("api/post/")
     Call<Post> postPost(@Body Post post);
 
-    @PUT("api/post/{post_id}")
+    @PUT("api/post/{post_id}/")
     Call<Post> putPost(@Path("psot_id") String id, @Body Post post);
 
-    @DELETE("api/post/{post_id}")
+    @DELETE("api/post/{post_id}/")
     Call<Void> deletePost(@Path("post_id") String id);
 }
