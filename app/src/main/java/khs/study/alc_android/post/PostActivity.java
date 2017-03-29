@@ -39,13 +39,13 @@ public class PostActivity extends Activity implements PostPresenter{
         mView.setPresenter(this);
 
         mView.setMotherView(this.getWindow().getDecorView());
-        onShowPostButtonClick();
+        onShowPostsButtonClick();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        onShowPostButtonClick();
+        onShowPostsButtonClick();
     }
 
     @Override
