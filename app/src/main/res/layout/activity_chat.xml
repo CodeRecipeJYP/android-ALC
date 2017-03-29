@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/afkn_listener_club_bg_logo_500"
+    android:weightSum="1">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="200dp"
+        android:layout_height="64dp"
+        app:layoutManager="LinearLayoutManager"></android.support.v7.widget.RecyclerView>
+
+    <EditText
+        android:id="@+id/newPostContent"
+        android:layout_width="151dp"
+        android:layout_height="129dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="294dp"
+        android:layout_marginLeft="100dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
         android:id="@+id/sendMsgBtn"
@@ -10,4 +31,4 @@
         android:text="Send"
         android:layout_marginTop="70dp"
         android:layout_marginRight="30dp" />
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

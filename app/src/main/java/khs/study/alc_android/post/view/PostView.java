@@ -21,6 +21,7 @@ public interface PostView extends BaseView<PostPresenter> {
         void onShowPostButtonClick();
         void onNewPostButtonClick();
         void onDeletePostButtonClick();
+        void onGoChatActivityBtnClick();
         void onModifyPostButtonClick();
         void onTestButtonClick();
         void onTestViewLogic();

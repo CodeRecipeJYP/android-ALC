@@ -25,7 +25,7 @@ public class PostViewImpl implements PostView {
 
     RecyclerView mRecyclerView;
     PostAdapter mPostAdapter;
-    Button btn1, btn2,btn3,newPostBtn,showPostsBtn, btnTest;
+    Button btn1, btn2,goChatActivityBtn,newPostBtn,showPostsBtn, btnTest;
     EditText newPostTitle, newPostContent;
 
     @Override
@@ -52,11 +52,11 @@ public class PostViewImpl implements PostView {
                 mPresenter.onShowPostButtonClick();
             }
         });
-        btn3 = (Button) mMotherView.findViewById(R.id.button3);
-        btn3.setOnClickListener(new View.OnClickListener() {
+        goChatActivityBtn = (Button) mMotherView.findViewById(R.id.goChatActivityBtn);
+        goChatActivityBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.onModifyPostButtonClick();
+                mPresenter.onGoChatActivityBtnClick();
             }
         });
         newPostBtn = (Button) mMotherView.findViewById(R.id.newPostBtn);

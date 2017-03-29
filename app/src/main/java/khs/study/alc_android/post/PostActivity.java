@@ -1,6 +1,7 @@
 package khs.study.alc_android.post;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import java.util.List;
 
 import khs.study.alc_android.R;
+import khs.study.alc_android.chat.ChatActivity;
 import khs.study.alc_android.post.domain.Post;
 import khs.study.alc_android.post.model.PostService;
 import khs.study.alc_android.post.model.PostServiceImpl;
@@ -117,6 +119,11 @@ public class PostActivity extends Activity implements PostPresenter{
         Log.d(TAG, "onModifyPostButtonClick: ");
     }
 
+    @Override
+    public void onGoChatActivityBtnClick() {
+        Log.d(TAG, "onGoChatActivityBtnClick: ");
+        startActivity(new Intent(PostActivity.this, ChatActivity.class));
+    }
 
     // for test
 
