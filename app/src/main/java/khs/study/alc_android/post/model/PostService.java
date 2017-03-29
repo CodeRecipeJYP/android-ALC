@@ -16,7 +16,7 @@ public interface PostService extends BaseService<PostPresenter> {
         void onGetPostsSuccess(List<Post> posts);
     }
 
-    void postPost(String author, String title, String content, final PostPostListener postPostsListener);
+    void postPost(String user, String title, String content, final PostPostListener postPostListener);
     interface PostPostListener{
         void onPostPostSuccess(Post post);
     }

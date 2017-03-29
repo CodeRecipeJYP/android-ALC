@@ -100,8 +100,8 @@ public class PostActivity extends Activity implements PostPresenter{
         Log.d(TAG, "onNewPostButtonClick: ");
         String title = mView.getNewPostTitle();
         String content = mView.getNewPostContent();
-        String author = "1";
-        mService.postPost(author, title, content, new PostService.PostPostListener() {
+        String user = "1";
+        mService.postPost(user, title, content, new PostService.PostPostListener() {
             @Override
             public void onPostPostSuccess(Post post) {
                 onShowPostsButtonClick();

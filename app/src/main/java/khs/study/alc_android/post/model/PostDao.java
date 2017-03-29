@@ -26,7 +26,7 @@ public interface PostDao {
     Call<Post> postPost(@Body Post post);
 
     @PUT("api/post/{post_id}/")
-    Call<Post> putPost(@Path("psot_id") String id, @Body Post post);
+    Call<Post> putPost(@Path("post_id") String id, @Body Post post);
 
     @DELETE("api/post/{post_id}/")
     Call<Void> deletePost(@Path("post_id") String id);

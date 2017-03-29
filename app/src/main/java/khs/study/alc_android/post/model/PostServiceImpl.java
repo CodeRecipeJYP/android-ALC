@@ -62,8 +62,8 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void postPost(String author, String title, String content, final PostPostListener postPostsListener) {
-        Post post = new Post(author, DateFormat.getDateTimeInstance().format(new Date()), title, content);
+    public void postPost(String user, String title, String content, final PostPostListener postPostListener) {
+        Post post = new Post(user, DateFormat.getDateTimeInstance().format(new Date()), title, content);
 
         Call<Post> call = mPostDao.postPost(post);
         call.enqueue(new Callback<Post>() {
@@ -71,7 +71,7 @@ public class PostServiceImpl implements PostService {
             public void onResponse(Call<Post> call, Response<Post> response) {
                 if (response.isSuccessful()) {
                     Log.d(TAG, "onResponse: Response is Successful");
-                    postPostsListener.onPostPostSuccess(response.body());
+                    postPostListener.onPostPostSuccess(response.body());
                 }
                 else {
                     Log.d(TAG, "onResponse: Unexpected response");
