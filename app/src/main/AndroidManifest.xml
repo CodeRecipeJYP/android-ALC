@@ -19,6 +19,8 @@
         </activity>
         <activity android:name=".post.PostActivity">
         </activity>
+        <activity android:name=".chat.ChatActivity">
+        </activity>
     </application>
 
 </manifest>
