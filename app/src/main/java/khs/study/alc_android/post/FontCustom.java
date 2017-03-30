@@ -13,6 +13,8 @@ public class FontCustom extends Application{
         super.onCreate();
 
         Typekit.getInstance()
-                .addCustom1(Typekit.createFromAsset(this,"fonts/orange juice 2.0.ttf"));
+                .addNormal(Typekit.createFromAsset(this,"fonts/orange juice 2.0.ttf"))
+                .addCustom1(Typekit.createFromAsset(this,"fonts/orange juice 2.0.ttf"))
+                .addCustom2(Typekit.createFromAsset(this,"fonts/NotoSansCJKkr-Regular.otf"));
     }
 }

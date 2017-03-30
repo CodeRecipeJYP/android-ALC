@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:text="제목(15자이내)"
         android:textSize="20dp"
+        app:font="custom2"
         android:textStyle="bold"
         android:layout_marginTop="15dp"
         />
@@ -38,7 +39,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="내용"
-        android:textSize="15dp"
+        android:textSize="20dp"
+        app:font="custom2"
         />
 
     <EditText
