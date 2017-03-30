@@ -1,6 +1,7 @@
 package khs.study.alc_android.post;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -18,6 +19,7 @@ import khs.study.alc_android.post.model.PostServiceImpl;
 import khs.study.alc_android.post.presenter.PostPresenter;
 import khs.study.alc_android.post.view.PostView;
 import khs.study.alc_android.post.view.PostViewImpl;
+import com.tsengvn.typekit.TypekitContextWrapper;
 
 /**
  * Created by jaeyoung on 2017. 3. 26..
@@ -146,5 +148,10 @@ public class PostActivity extends Activity implements PostPresenter{
 
     void testServiceLogic(){
 
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
     }
 }
