@@ -34,7 +34,6 @@ import static android.content.Context.LAYOUT_INFLATER_SERVICE;
     RecyclerView mRecyclerView;
     PostAdapter mPostAdapter;
     Button btn1, btn2,goChatActivityBtn,newPostBtn,showPostsBtn, btnTest;
-    EditText newPostTitle, newPostContent;
 
     private String dialogPostTitleText,dialogPostContentText;
 
@@ -92,19 +91,6 @@ import static android.content.Context.LAYOUT_INFLATER_SERVICE;
             }
         });
 
-        newPostTitle = (EditText) mMotherView.findViewById(R.id.newPostTitle);
-        newPostContent = (EditText) mMotherView.findViewById(R.id.newPostContent);
-        // mPresenter.onTestViewLogic();
-    }
-
-    @Override
-    public String getNewPostTitle(){
-        return newPostTitle.getText().toString();
-    }
-
-    @Override
-    public String getNewPostContent(){
-        return newPostContent.getText().toString();
     }
 
     @Override

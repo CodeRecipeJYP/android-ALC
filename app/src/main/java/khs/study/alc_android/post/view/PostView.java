@@ -14,8 +14,6 @@ public interface PostView extends BaseView<PostPresenter> {
     void showPosts(List<Post> posts);
     void showNewPostDialog();
 
-    String getNewPostTitle();
-    String getNewPostContent();
     String getDialogPostTitleText();
     String getDialogPostContentText();
 
