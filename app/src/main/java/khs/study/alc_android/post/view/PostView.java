@@ -12,9 +12,12 @@ import khs.study.alc_android.post.presenter.PostPresenter;
 
 public interface PostView extends BaseView<PostPresenter> {
     void showPosts(List<Post> posts);
+    void showNewPostDialog();
 
     String getNewPostTitle();
     String getNewPostContent();
+    String getDialogPostTitleText();
+    String getDialogPostContentText();
 
     interface onClickListener {
         void onShowPostsButtonClick();
@@ -25,5 +28,6 @@ public interface PostView extends BaseView<PostPresenter> {
         void onModifyPostButtonClick();
         void onTestButtonClick();
         void onTestViewLogic();
+        void onSendPostBtnClick();
     }
 }

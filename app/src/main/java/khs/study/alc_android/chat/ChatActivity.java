@@ -28,11 +28,12 @@ public class ChatActivity extends Activity implements ChatPresenter {
         setContentView(R.layout.activity_chat);
 
 
-        setService(new ChatServiceImpl());
+//        setService(new ChatServiceImpl());
         mService.setPresenter(this);
 
         sendMsgBtn = (Button) findViewById(R.id.sendMsgBtn);
         sendMsgBtn.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
 
