@@ -11,6 +11,7 @@
     android:layout_height="120dp"
     android:layout_gravity="center"
     android:paddingBottom="50dp"
+    android:layout_marginTop="5dp"
     card_view:cardCornerRadius="12dp">
 
     <LinearLayout
@@ -43,7 +44,9 @@
             android:layout_width="match_parent"
             android:layout_height="90dp"
             android:gravity="top"
+            android:textSize="20sp"
             android:text="Context!"
+            android:layout_marginLeft="13dp"
             app:font="custom3"
             />
     </LinearLayout>
