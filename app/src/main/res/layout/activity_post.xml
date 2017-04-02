@@ -7,46 +7,13 @@
     android:background="@drawable/afkn_listener_club_bg_logo_500"
     tools:context="khs.study.alc_android.post.PostActivity">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:autoLink="all"
-        android:text="thealc.pythonanywhere.com"
-        android:layout_marginTop="70dp"
-        android:layout_marginRight="5dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/button"/>
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:text="Button2"
-        android:layout_marginRight="5dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="12dp"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        android:background="@drawable/button"/>
-
-    <Button
-        android:id="@+id/goChatActivityBtn"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:text="GoChatActivity"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
-        android:layout_marginRight="5dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:background="@drawable/button"/>
     <Button
         android:id="@+id/newPostBtn"
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:text="New Post"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/goChatActivityBtn"
+        app:layout_constraintTop_toTopOf="@+id/guideline2"
         android:layout_marginRight="5dp"
         app:layout_constraintRight_toRightOf="parent"
         android:background="@drawable/button"/>
@@ -63,14 +30,26 @@
         android:background="@drawable/button"/>
 
     <Button
-        android:id="@+id/buttonTest"
+        android:id="@+id/goChatActivityBtn"
         android:layout_width="150dp"
         android:layout_height="50dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="17dp"
-        android:text="ButtonTest"
-        app:layout_constraintRight_toRightOf="parent"
+        android:text="GoChatActivity"
+        android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@+id/showPostsBtn"
+        android:layout_marginRight="5dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@drawable/button"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:autoLink="all"
+        android:text="thealc.pythonanywhere.com"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="5dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/goChatActivityBtn"
         android:background="@drawable/button"/>
 
     <android.support.constraint.Guideline

@@ -54,13 +54,6 @@ import static android.content.Context.LAYOUT_INFLATER_SERVICE;
                 mPresenter.onDeletePostButtonClick();
             }
         });
-        btn2 = (Button) mMotherView.findViewById(R.id.button2);
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.onShowPostButtonClick();
-            }
-        });
         goChatActivityBtn = (Button) mMotherView.findViewById(R.id.goChatActivityBtn);
         goChatActivityBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,14 +73,6 @@ import static android.content.Context.LAYOUT_INFLATER_SERVICE;
             @Override
             public void onClick(View v) {
                 mPresenter.onShowPostsButtonClick();
-            }
-        });
-
-        btnTest = (Button) mMotherView.findViewById(R.id.buttonTest);
-        btnTest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.onTestButtonClick();
             }
         });
 
