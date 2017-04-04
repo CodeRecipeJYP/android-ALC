@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,7 +17,8 @@
         app:layout_constraintTop_toTopOf="@+id/guideline2"
         android:layout_marginRight="5dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:background="@drawable/button"/>
+        android:background="@drawable/button"
+        app:font="custom1"/>
 
     <Button
         android:id="@+id/showPostsBtn"
@@ -27,7 +29,8 @@
         app:layout_constraintTop_toBottomOf="@+id/newPostBtn"
         android:layout_marginRight="5dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:background="@drawable/button"/>
+        android:background="@drawable/button"
+        app:font="custom1"/>
 
     <Button
         android:id="@+id/goChatActivityBtn"
@@ -38,7 +41,8 @@
         app:layout_constraintTop_toBottomOf="@+id/showPostsBtn"
         android:layout_marginRight="5dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:background="@drawable/button"/>
+        android:background="@drawable/button"
+        app:font="custom1"/>
 
     <Button
         android:id="@+id/button"
@@ -50,7 +54,8 @@
         android:layout_marginRight="5dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/goChatActivityBtn"
-        android:background="@drawable/button"/>
+        android:background="@drawable/button"
+        app:font="custom1"/>
 
     <android.support.constraint.Guideline
         android:layout_width="wrap_content"

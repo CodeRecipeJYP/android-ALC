@@ -13,6 +13,7 @@ import java.util.List;
 
 import khs.study.alc_android.R;
 import khs.study.alc_android.chat.ChatActivity;
+import khs.study.alc_android.drawer.DrawerActivity;
 import khs.study.alc_android.post.domain.Post;
 import khs.study.alc_android.post.model.PostService;
 import khs.study.alc_android.post.model.PostServiceImpl;
@@ -25,7 +26,7 @@ import com.tsengvn.typekit.TypekitContextWrapper;
  * Created by jaeyoung on 2017. 3. 26..
  */
 
-public class PostActivity extends Activity implements PostPresenter{
+public class PostActivity extends DrawerActivity implements PostPresenter{
     private final String TAG = "JYP/"+getClass().getSimpleName();
 
     PostService mService;
@@ -34,7 +35,8 @@ public class PostActivity extends Activity implements PostPresenter{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post);
+        setContentView(R.layout.activity_main);
+        super.initView();
 
         setService(new PostServiceImpl());
         mService.setPresenter(this);
