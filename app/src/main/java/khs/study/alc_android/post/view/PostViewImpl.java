@@ -35,7 +35,6 @@ import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
     RecyclerView mRecyclerView;
     PostAdapter mPostAdapter;
-    Button btn1, btn2,goChatActivityBtn,newPostBtn,showPostsBtn, btnTest;
 
     private String dialogPostTitleText,dialogPostContentText;
 
@@ -49,34 +48,6 @@ import static android.content.Context.LAYOUT_INFLATER_SERVICE;
     void initView(){
         Log.d(TAG, "initView: mRecyclerView");
         mRecyclerView = (RecyclerView) mMotherView.findViewById(R.id.recycler_view);
-        btn1 = (Button) mMotherView.findViewById(R.id.button);
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.onDeletePostButtonClick();
-            }
-        });
-        goChatActivityBtn = (Button) mMotherView.findViewById(R.id.goChatActivityBtn);
-        goChatActivityBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.onGoChatActivityBtnClick();
-            }
-        });
-        newPostBtn = (Button) mMotherView.findViewById(R.id.newPostBtn);
-        newPostBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.onNewPostButtonClick();
-            }
-        });
-        showPostsBtn = (Button) mMotherView.findViewById(R.id.showPostsBtn);
-        showPostsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPresenter.onShowPostsButtonClick();
-            }
-        });
         final SwipeRefreshLayout mSwipeRefresh = (SwipeRefreshLayout) mMotherView.findViewById(R.id.swiperefresh);
         mSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

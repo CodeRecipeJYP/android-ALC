@@ -7,12 +7,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
     android:id="@+id/card_view"
-    android:layout_width="200dp"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:paddingBottom="50dp"
     android:layout_marginTop="5dp"
-    card_view:cardCornerRadius="12dp">
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="55dp"
+    card_view:cardCornerRadius="9dp">
 
     <LinearLayout
         android:id="@+id/llContainer"
@@ -20,7 +22,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:orientation="vertical"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
 
         <TextView
             android:id="@+id/tvTitle"
@@ -48,6 +51,7 @@
             android:text="Context!"
             android:layout_marginLeft="13dp"
             app:font="custom3"
+            android:layout_marginTop="5dp"
             android:layout_marginBottom="2dp"
             />
     </LinearLayout>
