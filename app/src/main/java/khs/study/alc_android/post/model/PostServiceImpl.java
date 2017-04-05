@@ -1,11 +1,19 @@
 package khs.study.alc_android.post.model;
 
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
 
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
 
+import khs.study.alc_android.R;
+import khs.study.alc_android.drawer.DrawerActivity;
 import khs.study.alc_android.post.domain.Post;
 import khs.study.alc_android.post.presenter.PostPresenter;
 import khs.study.alc_android.utils.RestClient;
@@ -84,4 +92,5 @@ public class PostServiceImpl implements PostService {
             }
         });
     }
+
 }

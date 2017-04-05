@@ -36,7 +36,7 @@ public class PostActivity extends DrawerActivity implements PostPresenter{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        super.initView();
+        super.initDrawerView();
 
         setService(new PostServiceImpl());
         mService.setPresenter(this);
@@ -156,4 +156,5 @@ public class PostActivity extends DrawerActivity implements PostPresenter{
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(TypekitContextWrapper.wrap(newBase));
     }
+
 }

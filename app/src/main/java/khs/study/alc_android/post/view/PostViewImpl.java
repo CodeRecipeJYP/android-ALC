@@ -1,6 +1,7 @@
 package khs.study.alc_android.post.view;
 
 import android.content.DialogInterface;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
@@ -82,6 +83,13 @@ import static android.content.Context.LAYOUT_INFLATER_SERVICE;
             public void onRefresh() {
                 mPresenter.onShowPostsButtonClick();
                 mSwipeRefresh.setRefreshing(false);
+            }
+        });
+        FloatingActionButton fab = (FloatingActionButton) mMotherView.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mPresenter.onNewPostButtonClick();
             }
         });
     }

@@ -17,6 +17,8 @@ import android.view.MenuItem;
 
 import khs.study.alc_android.R;
 import khs.study.alc_android.post.PostActivity;
+import khs.study.alc_android.post.presenter.PostPresenter;
+import khs.study.alc_android.post.view.PostView;
 
 public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -24,11 +26,13 @@ public class DrawerActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+       
 
 
     }
 
-    protected void initView(){
+
+    protected void initDrawerView(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -36,8 +40,7 @@ public class DrawerActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+
             }
         });
 
