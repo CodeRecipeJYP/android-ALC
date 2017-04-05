@@ -1,6 +1,7 @@
 package khs.study.alc_android.drawer;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import khs.study.alc_android.R;
+import khs.study.alc_android.post.PostActivity;
 
 public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -88,7 +90,7 @@ public class DrawerActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_board) {
-            // Handle the board action
+            startActivity(new Intent(getApplicationContext(), PostActivity.class));
         } else if (id == R.id.nav_chat) {
 
         } else if (id == R.id.nav_album) {
