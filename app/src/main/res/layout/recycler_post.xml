@@ -54,14 +54,46 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="2dp"
         />
+
+        <LinearLayout
+            android:id="@+id/btnContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:id="@+id/thumbuptxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="좋아요"
+                android:textSize="10sp"/>
+
+            <TextView
+                android:id="@+id/thumbdowntxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="싫어요"
+                android:textSize="10sp"/>
+
+            <TextView
+                android:id="@+id/commenttxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="댓글"
+                android:textSize="10sp"/>
+        </LinearLayout>
+
     <LinearLayout
         android:id="@+id/btnContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp">
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/thumbupbtn"
