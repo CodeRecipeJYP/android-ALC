@@ -1,6 +1,7 @@
 package khs.study.alc_android.post.view;
 
 import android.content.DialogInterface;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.text.InputType;
@@ -75,7 +76,14 @@ import static android.content.Context.LAYOUT_INFLATER_SERVICE;
                 mPresenter.onShowPostsButtonClick();
             }
         });
-
+        final SwipeRefreshLayout mSwipeRefresh = (SwipeRefreshLayout) mMotherView.findViewById(R.id.swiperefresh);
+        mSwipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                mPresenter.onShowPostsButtonClick();
+                mSwipeRefresh.setRefreshing(false);
+            }
+        });
     }
 
     @Override
