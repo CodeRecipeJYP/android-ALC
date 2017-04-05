@@ -12,8 +12,8 @@
     android:layout_gravity="center"
     android:paddingBottom="50dp"
     android:layout_marginTop="5dp"
-    android:layout_marginLeft="15dp"
-    android:layout_marginRight="55dp"
+    android:layout_marginStart="0dp"
+    android:layout_marginEnd="0dp"
     card_view:cardCornerRadius="9dp">
 
     <LinearLayout
@@ -25,34 +25,66 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp">
 
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="bottom|center"
-            android:text="Title"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            app:font="custom4"
-            />
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|center"
+        android:text="Title"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:font="custom4"
+        />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#ff000000" />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ff000000" />
 
-        <TextView
-            android:id="@+id/tvContext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="top"
-            android:textSize="20sp"
-            android:text="Context!"
-            android:layout_marginLeft="13dp"
-            app:font="custom3"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="2dp"
-            />
+    <TextView
+        android:id="@+id/tvContext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:textSize="20sp"
+        android:text="Context!"
+        android:layout_marginLeft="13dp"
+        app:font="custom3"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="2dp"
+        />
+    <LinearLayout
+        android:id="@+id/btnContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+
+        <Button
+            android:id="@+id/thumbupbtn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_cardview_thumbup" />
+
+        <Button
+            android:id="@+id/thumbdownbtn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_cardview_thumbdown" />
+
+        <Button
+            android:id="@+id/commentbtn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/btn_cardview_comment"/>
+        </LinearLayout>
+
+
     </LinearLayout>
 </android.support.v7.widget.CardView>
