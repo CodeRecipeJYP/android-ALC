@@ -24,6 +24,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import khs.study.alc_android.R;
+import khs.study.alc_android.chat.ChatActivity;
 import khs.study.alc_android.common.AppController;
 import khs.study.alc_android.common.LoginListener;
 import khs.study.alc_android.consts.Config;
@@ -92,6 +93,7 @@ public class DrawerActivity extends AppCompatActivity
 
         mNavigationView = (NavigationView) findViewById(R.id.nav_view);
         mNavigationView.setNavigationItemSelectedListener(this);
+        showLoginStatus(AppController.userSignedin());
     }
 
     @Override
@@ -108,21 +110,24 @@ public class DrawerActivity extends AppCompatActivity
 
     public void showLoginStatus(boolean loginStatus) {
         Log.d(TAG, "showLoginStatus: ");
-        String loginStatusMsg, userEmail;
+        String loginStatusMsg, userName, userEmail;
         if (loginStatus) {
             Log.d(TAG, "onPrepareOptionsMenu: if Signed in");
             loginStatusMsg = "로그아웃";
-            // dafultUserEmail = ALC
+            userName = AppController.getUserName();
             userEmail = AppController.getUserEmail();
         }
         else {
             Log.d(TAG, "onPrepareOptionsMenu: if not Signed in");
             loginStatusMsg = "로그인";
+            userName = Config.defaultUserName;
             userEmail = Config.defaultUserEmail;
         }
         Log.d(TAG, "showLoginStatus: setTitle to LoginStatus");
         mNavigationView.getMenu().findItem(R.id.nav_login).setTitle(loginStatusMsg);
-        ((TextView) (mNavigationView.getHeaderView(0).findViewById(R.id.email))).setText(userEmail);
+        View headerView = mNavigationView.getHeaderView(0);
+        ((TextView) (headerView.findViewById(R.id.name))).setText(userName);
+        ((TextView) (headerView.findViewById(R.id.email))).setText(userEmail);
     }
 
     @Override
@@ -159,7 +164,7 @@ public class DrawerActivity extends AppCompatActivity
         if (id == R.id.nav_board) {
             startActivity(new Intent(getApplicationContext(), PostActivity.class));
         } else if (id == R.id.nav_chat) {
-
+            startActivity(new Intent(getApplicationContext(), ChatActivity.class));
         } else if (id == R.id.nav_album) {
 
         } else if (id == R.id.nav_calendar) {

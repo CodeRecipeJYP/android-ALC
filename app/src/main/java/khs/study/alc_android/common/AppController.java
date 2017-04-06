@@ -11,6 +11,8 @@ import com.tsengvn.typekit.Typekit;
 import java.util.ArrayList;
 import java.util.List;
 
+import khs.study.alc_android.login.domain.User;
+
 /**
  * Created by wj on 2017-03-30.
  */
@@ -19,6 +21,7 @@ public class AppController extends Application {
     private static final String TAG = "JYP/"+"AppController";
     private static FirebaseAuth mAuth;
     private static FirebaseAuth.AuthStateListener mAuthListener;
+    private static User mCurrentUser;
 
     private static List<LoginListener> mLoginListeners;
 
@@ -66,12 +69,14 @@ public class AppController extends Application {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     // User is signed in
-                    notifyLoginListeners(true);
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                    mCurrentUser = new User(user.getDisplayName(), user.getEmail());
+                    notifyLoginListeners(true);
                 } else {
                     // User is signed out
-                    notifyLoginListeners(false);
                     Log.d(TAG, "onAuthStateChanged:signed_out");
+                    mCurrentUser = null;
+                    notifyLoginListeners(false);
                 }
             }
         };
@@ -110,12 +115,21 @@ public class AppController extends Application {
     }
 
     public static String getUserEmail() {
-        FirebaseUser user = mAuth.getCurrentUser();
-        if (user != null) {
-            Log.d(TAG, "getUserEmail: "+user);
-            return user.getEmail();
+        if (mCurrentUser != null) {
+            Log.d(TAG, "getUserEmail: "+mCurrentUser.getEmail());
+            return mCurrentUser.getEmail();
         } else {
-            Log.d(TAG, "userInfo: null");
+            Log.d(TAG, "getUserEmail: null");
+            return null;
+        }
+    }
+
+    public static String getUserName() {
+        if (mCurrentUser != null) {
+            Log.d(TAG, "getUserName: "+mCurrentUser.getName());
+            return mCurrentUser.getName();
+        } else {
+            Log.d(TAG, "getUserName: ");
             return null;
         }
     }
