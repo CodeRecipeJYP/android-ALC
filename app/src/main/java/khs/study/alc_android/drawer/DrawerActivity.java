@@ -18,9 +18,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import khs.study.alc_android.R;
 import khs.study.alc_android.common.AppController;
 import khs.study.alc_android.common.LoginListener;
+import khs.study.alc_android.login.LoginActivity;
 import khs.study.alc_android.post.PostActivity;
 import khs.study.alc_android.post.presenter.PostPresenter;
 import khs.study.alc_android.post.view.PostView;
@@ -154,7 +157,14 @@ public class DrawerActivity extends AppCompatActivity
         } else if (id == R.id.nav_calendar) {
 
         } else if (id == R.id.nav_login) {
-            
+            if (AppController.userSignedin()) {
+                // if user is signed -> sign out
+                FirebaseAuth.getInstance().signOut();
+            }
+            else
+            {
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+            }
         } else if (id == R.id.nav_signin) {
             
         }
