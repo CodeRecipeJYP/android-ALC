@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1089447103033",
+    "firebase_url": "https://alcweb-919c1.firebaseio.com",
+    "project_id": "alcweb-919c1",
+    "storage_bucket": "alcweb-919c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089447103033:android:10ab17af59230c84",
+        "android_client_info": {
+          "package_name": "khs.study.alc_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1089447103033-fnhtd1vvfnbfoo3mpu8fq8ln9s769lda.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQS1lc9dEGoRJFHSed9tMBHTPewVItSIw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
