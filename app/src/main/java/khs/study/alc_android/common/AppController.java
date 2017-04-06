@@ -9,12 +9,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.tsengvn.typekit.Typekit;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
-
-import khs.study.alc_android.drawer.DrawerActivity;
 
 /**
  * Created by wj on 2017-03-30.
@@ -111,6 +106,17 @@ public class AppController extends Application {
             // User is signed out
             Log.d(TAG, "userSignedin: signedout");
             return false;
+        }
+    }
+
+    public static String getUserEmail() {
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user != null) {
+            Log.d(TAG, "getUserEmail: "+user);
+            return user.getEmail();
+        } else {
+            Log.d(TAG, "userInfo: null");
+            return null;
         }
     }
 }

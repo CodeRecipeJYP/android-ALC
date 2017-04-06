@@ -16,6 +16,7 @@ import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
+import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -93,6 +94,9 @@ public class LoginActivity extends DrawerActivity {
         public void onSuccess(LoginResult loginResult) {
             Log.d(TAG, "onSuccess: "+loginResult);
             handleFacebookAccessToken(loginResult.getAccessToken());
+            Log.d(TAG, "onSuccess: FacebookLogout");
+            LoginManager.getInstance().logOut();
+            FacebookSdk.sdkInitialize(getApplicationContext());
         }
     };
 

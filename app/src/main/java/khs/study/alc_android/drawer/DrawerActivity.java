@@ -1,12 +1,9 @@
 package khs.study.alc_android.drawer;
 
 
-import android.app.TaskStackBuilder;
-import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -17,16 +14,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 import khs.study.alc_android.R;
 import khs.study.alc_android.common.AppController;
 import khs.study.alc_android.common.LoginListener;
+import khs.study.alc_android.consts.Config;
 import khs.study.alc_android.login.LoginActivity;
 import khs.study.alc_android.post.PostActivity;
-import khs.study.alc_android.post.presenter.PostPresenter;
-import khs.study.alc_android.post.view.PostView;
 
 public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -105,17 +102,21 @@ public class DrawerActivity extends AppCompatActivity
 
     public void showLoginStatus(boolean loginStatus) {
         Log.d(TAG, "showLoginStatus: ");
-        String loginStatusMsg;
+        String loginStatusMsg, userEmail;
         if (loginStatus) {
             Log.d(TAG, "onPrepareOptionsMenu: if Signed in");
             loginStatusMsg = "로그아웃";
+            // dafultUserEmail = ALC
+            userEmail = AppController.getUserEmail();
         }
         else {
             Log.d(TAG, "onPrepareOptionsMenu: if not Signed in");
             loginStatusMsg = "로그인";
+            userEmail = Config.defaultUserEmail;
         }
         Log.d(TAG, "showLoginStatus: setTitle to LoginStatus");
         mNavigationView.getMenu().findItem(R.id.nav_login).setTitle(loginStatusMsg);
+        ((TextView) (mNavigationView.getHeaderView(0).findViewById(R.id.email))).setText(userEmail);
     }
 
     @Override
