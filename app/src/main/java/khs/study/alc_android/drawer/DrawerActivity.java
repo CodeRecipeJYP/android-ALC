@@ -1,10 +1,13 @@
 package khs.study.alc_android.drawer;
 
 
+import android.app.TaskStackBuilder;
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,23 +19,54 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import khs.study.alc_android.R;
+import khs.study.alc_android.common.AppController;
+import khs.study.alc_android.common.LoginListener;
 import khs.study.alc_android.post.PostActivity;
 import khs.study.alc_android.post.presenter.PostPresenter;
 import khs.study.alc_android.post.view.PostView;
 
 public class DrawerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private final String TAG = "JYP/"+getClass().getSimpleName();
+
+    private NavigationView mNavigationView;
+    private LoginListener mLoginListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       
 
 
+        Log.d(TAG, "onCreate:");
+        initLoginListener();
+        Log.d(TAG, "onCreate: addLoginListener");
+        AppController.addLoginListener(mLoginListener);
+    }
+
+    private void initLoginListener() {
+        mLoginListener = new LoginListener() {
+            @Override
+            public void signedOut() {
+                showLoginStatus(false);
+            }
+
+            @Override
+            public void signedIn() {
+                showLoginStatus(true);
+            }
+        };
     }
 
 
+    @Override
+    protected void onDestroy() {
+        Log.d(TAG, "onDestroy: removeLoginListener");
+        AppController.removeLoginListener(mLoginListener);
+        super.onDestroy();
+    }
+
     protected void initDrawerView(){
+        Log.d(TAG, "initDrawerView: ");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -50,22 +84,40 @@ public class DrawerActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+        mNavigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
+            Log.d(TAG, "onBackPressed: Drawer is opened");
             drawer.closeDrawer(GravityCompat.START);
         } else {
+            Log.d(TAG, "onBackPressed: Drawer is not opened");
             super.onBackPressed();
         }
     }
 
+    public void showLoginStatus(boolean loginStatus) {
+        Log.d(TAG, "showLoginStatus: ");
+        String loginStatusMsg;
+        if (loginStatus) {
+            Log.d(TAG, "onPrepareOptionsMenu: if Signed in");
+            loginStatusMsg = "로그아웃";
+        }
+        else {
+            Log.d(TAG, "onPrepareOptionsMenu: if not Signed in");
+            loginStatusMsg = "로그인";
+        }
+        Log.d(TAG, "showLoginStatus: setTitle to LoginStatus");
+        mNavigationView.getMenu().findItem(R.id.nav_login).setTitle(loginStatusMsg);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        Log.d(TAG, "onCreateOptionsMenu: ");
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
@@ -73,6 +125,7 @@ public class DrawerActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Log.d(TAG, "onOptionsItemSelected: ");
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
@@ -101,9 +154,9 @@ public class DrawerActivity extends AppCompatActivity
         } else if (id == R.id.nav_calendar) {
 
         } else if (id == R.id.nav_login) {
-
+            
         } else if (id == R.id.nav_signin) {
-
+            
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -45,42 +45,8 @@ public class LoginActivity extends DrawerActivity {
     private LoginButton btnRegisterFacebook;
     private CallbackManager callbackManager;
 
-    FirebaseAuth mAuth;
-    FirebaseAuth.AuthStateListener mAuthListener;
-
     private void initFirebaseLogin() {
         Log.d(TAG, "initFirebaseLogin: ");
-        mAuth = FirebaseAuth.getInstance();
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                } else {
-                    // User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
-                }
-            }
-        };
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.d(TAG, "onStart: addAuthStateListener");
-        mAuth.addAuthStateListener(mAuthListener);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d(TAG, "onStop: ");
-        if (mAuthListener != null) {
-            Log.d(TAG, "onStop: removeAuthStateListener");
-            mAuth.removeAuthStateListener(mAuthListener);
-        }
     }
 
     private void initFacebookLogin() {
