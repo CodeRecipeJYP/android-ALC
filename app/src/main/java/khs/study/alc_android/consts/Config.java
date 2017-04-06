@@ -5,5 +5,6 @@ package khs.study.alc_android.consts;
  */
 
 public class Config {
-    public static final String defaultUserEmail = "ALC";
+    public static final String defaultUserName = "ALC";
+    public static final String defaultUserEmail = "AFKN Listener's Club";
 }

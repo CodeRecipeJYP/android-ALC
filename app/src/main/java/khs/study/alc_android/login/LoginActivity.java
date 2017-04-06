@@ -32,6 +32,7 @@ import org.json.JSONObject;
 import java.util.Arrays;
 
 import khs.study.alc_android.R;
+import khs.study.alc_android.common.AppController;
 import khs.study.alc_android.drawer.DrawerActivity;
 import khs.study.alc_android.post.PostActivity;
 
@@ -97,6 +98,7 @@ public class LoginActivity extends DrawerActivity {
             Log.d(TAG, "onSuccess: FacebookLogout");
             LoginManager.getInstance().logOut();
             FacebookSdk.sdkInitialize(getApplicationContext());
+            goPostActivity();
         }
     };
 
@@ -117,11 +119,18 @@ public class LoginActivity extends DrawerActivity {
         goPostActivityBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this, PostActivity.class));
+                goPostActivity();
             }
         });
 
+        if (AppController.userSignedin()) {
+            goPostActivity();
+        }
         initFacebookLogin();
         initFirebaseLogin();
+    }
+
+    private void goPostActivity() {
+        startActivity(new Intent(LoginActivity.this, PostActivity.class));
     }
 }
