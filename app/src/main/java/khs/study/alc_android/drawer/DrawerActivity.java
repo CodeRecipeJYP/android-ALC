@@ -24,6 +24,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import khs.study.alc_android.R;
+import khs.study.alc_android.chat.ChatActivity;
 import khs.study.alc_android.common.AppController;
 import khs.study.alc_android.common.LoginListener;
 import khs.study.alc_android.consts.Config;
@@ -163,7 +164,7 @@ public class DrawerActivity extends AppCompatActivity
         if (id == R.id.nav_board) {
             startActivity(new Intent(getApplicationContext(), PostActivity.class));
         } else if (id == R.id.nav_chat) {
-
+            startActivity(new Intent(getApplicationContext(), ChatActivity.class));
         } else if (id == R.id.nav_album) {
 
         } else if (id == R.id.nav_calendar) {

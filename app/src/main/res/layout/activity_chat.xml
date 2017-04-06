@@ -1,34 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/afkn_listener_club_bg_logo_500"
     android:weightSum="1">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
-        android:layout_width="200dp"
-        android:layout_height="64dp"
-        app:layoutManager="LinearLayoutManager"></android.support.v7.widget.RecyclerView>
-
     <EditText
-        android:id="@+id/newPostContent"
-        android:layout_width="151dp"
-        android:layout_height="129dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
+        android:id="@+id/messageEditText"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        app:layout_constraintHorizontal_weight="3"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="294dp"
-        android:layout_marginLeft="100dp"
+        app:layout_constraintRight_toLeftOf="@+id/sendButton"
         app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
-        android:id="@+id/sendMsgBtn"
+        android:id="@+id/sendButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:text="Send"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@id/messageEditText"
+        app:layout_constraintLeft_toRightOf="@id/messageEditText" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Send"
-        android:layout_marginTop="70dp"
-        android:layout_marginRight="30dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintVertical_bias="0.501"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/message_list_view"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layoutManager="LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/messageEditText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></android.support.v7.widget.RecyclerView>
 </android.support.constraint.ConstraintLayout>

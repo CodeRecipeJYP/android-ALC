@@ -13,18 +13,26 @@ public class Message implements Serializable {
     String id;
     @SerializedName("created_date")
     String created_date;
-    @SerializedName("title")
-    String title;
     @SerializedName("user")
     String user;
+    @SerializedName("content")
+    String content;
     @SerializedName("chat")
     String chat;
 
-    public Message(String id, String created_date, String title, String user, String chat) {
+    public Message() {
+    }
+
+    public Message(String user, String content) {
+        this.user = user;
+        this.content = content;
+    }
+
+    public Message(String id, String created_date, String user, String content, String chat) {
         this.id = id;
         this.created_date = created_date;
-        this.title = title;
         this.user = user;
+        this.content = content;
         this.chat = chat;
     }
 
@@ -44,12 +52,12 @@ public class Message implements Serializable {
         this.created_date = created_date;
     }
 
-    public String getTitle() {
-        return title;
+    public String getContent() {
+        return content;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public String getUser() {
