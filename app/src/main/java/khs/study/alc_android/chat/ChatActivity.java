@@ -119,6 +119,7 @@ public class ChatActivity extends Activity implements ChatPresenter {
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Message message = dataSnapshot.getValue(Message.class);
                 mChatAdapter.add(message);
+                mChatAdapter.notifyDataSetChanged();
             }
 
             @Override
