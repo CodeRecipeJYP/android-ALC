@@ -45,21 +45,43 @@ public class LoginActivity extends DrawerActivity {
     private LoginButton btnRegisterFacebook;
     private CallbackManager callbackManager;
 
-    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    FirebaseAuth mAuth;
+    FirebaseAuth.AuthStateListener mAuthListener;
 
-    FirebaseAuth.AuthStateListener mAuthListener = new FirebaseAuth.AuthStateListener() {
-        @Override
-        public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-            FirebaseUser user = firebaseAuth.getCurrentUser();
-            if (user != null) {
-                // User is signed in
-                Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-            } else {
-                // User is signed out
-                Log.d(TAG, "onAuthStateChanged:signed_out");
+    private void initFirebaseLogin() {
+        Log.d(TAG, "initFirebaseLogin: ");
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    // User is signed in
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                } else {
+                    // User is signed out
+                    Log.d(TAG, "onAuthStateChanged:signed_out");
+                }
             }
+        };
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(TAG, "onStart: addAuthStateListener");
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(TAG, "onStop: ");
+        if (mAuthListener != null) {
+            Log.d(TAG, "onStop: removeAuthStateListener");
+            mAuth.removeAuthStateListener(mAuthListener);
         }
-    };
+    }
 
     private void initFacebookLogin() {
         //FacebookSdk.sdkInitialize(getApplicationContext());
@@ -103,25 +125,8 @@ public class LoginActivity extends DrawerActivity {
         }
         @Override
         public void onSuccess(LoginResult loginResult) {
-            GraphRequest request = GraphRequest.newMeRequest(
-                    loginResult.getAccessToken(),
-                    new GraphRequest.GraphJSONObjectCallback() {
-                        @Override
-                        public void onCompleted(JSONObject object, GraphResponse response) {
-                            String socialId = null, name = null;
-                            try {
-                                socialId = object.getString("id");
-                                name = object.getString("name");
-                            }catch (Exception e){}
-
-                            Log.d(TAG, "onCompleted: "+socialId);
-                            Log.d(TAG, "onCompleted: "+name);
-                        }
-                    });
-            Bundle parameters = new Bundle();
-            parameters.putString("fields", "id,name");
-            request.setParameters(parameters);
-            request.executeAsync();
+            Log.d(TAG, "onSuccess: "+loginResult);
+            handleFacebookAccessToken(loginResult.getAccessToken());
         }
     };
 
@@ -147,5 +152,6 @@ public class LoginActivity extends DrawerActivity {
         });
 
         initFacebookLogin();
+        initFirebaseLogin();
     }
 }

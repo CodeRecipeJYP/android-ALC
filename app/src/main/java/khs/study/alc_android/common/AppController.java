@@ -14,32 +14,12 @@ import com.tsengvn.typekit.Typekit;
 
 public class AppController extends Application{
     private final String TAG = "JYP/"+getClass().getSimpleName();
-    FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
         addCustomFont();
-
-        initAuthListener();
-    }
-
-    private void initAuthListener() {
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                } else {
-                    // User is signed out
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
-                }
-
-            }
-        };
     }
 
     private void addCustomFont() {
@@ -50,4 +30,6 @@ public class AppController extends Application{
                 .addCustom3(Typekit.createFromAsset(this,"fonts/tvN_Medium.ttf"))
                 .addCustom4(Typekit.createFromAsset(this,"fonts/08SeoulNamsanEB.ttf"));
     }
+
+
 }
