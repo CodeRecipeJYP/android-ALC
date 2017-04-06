@@ -11,7 +11,7 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="POST"
+        android:text="Login"
         app:font="custom1"
         android:textSize="50dp"
         android:gravity="center"
@@ -19,23 +19,23 @@
         />
 
     <EditText
-        android:id="@+id/dialogPostTitleText"
+        android:id="@+id/editTextLoginID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
         android:maxLength="15"
-        android:hint="제목"
+        android:hint="ID"
         />
 
     <EditText
-        android:id="@+id/dialogPostContentText"
+        android:id="@+id/editTextLoginPW"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
         android:lines="3"
         android:maxLines="5"
         android:minLines="2"
-        android:hint="내용"
+        android:hint="P/W"
         />
 
 </LinearLayout>

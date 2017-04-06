@@ -1,10 +1,14 @@
 package khs.study.alc_android.drawer;
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,8 +19,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-
 import com.google.firebase.auth.FirebaseAuth;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import khs.study.alc_android.R;
 import khs.study.alc_android.common.AppController;
@@ -31,6 +36,7 @@ public class DrawerActivity extends AppCompatActivity
 
     private NavigationView mNavigationView;
     private LoginListener mLoginListener;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,6 +150,7 @@ public class DrawerActivity extends AppCompatActivity
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
+
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
@@ -166,6 +173,20 @@ public class DrawerActivity extends AppCompatActivity
             {
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
             }
+//            LayoutInflater inflater = (LayoutInflater)getSystemService(LAYOUT_INFLATER_SERVICE);
+//            final View view = inflater.inflate(R.layout.custom_login_layout,null);
+//             final EditText ID = (EditText)view.findViewById(R.id.editTextLoginID);
+//             final EditText PW = (EditText)view.findViewById(R.id.editTextLoginPW);
+//             new AlertDialog.Builder(view.getContext())
+//                     .setView(view)
+//                     .setPositiveButton("로그인", new DialogInterface.OnClickListener() {
+//                         @Override
+//                         public void onClick(DialogInterface dialog, int which) {
+//                         }
+//                     })
+
+//                     .setNegativeButton("나가기", null)
+//                     .show();
         } else if (id == R.id.nav_signin) {
             
         }
